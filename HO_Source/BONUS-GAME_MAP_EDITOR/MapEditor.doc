@@ -1,0 +1,625 @@
+            - G A M E   M A P   E D I T O R   D O C U M E N T A T I O N -
+
+         Copyright ©1995 Paul-John Overy
+
+           A FryUp Productions Product
+
+              LAST UPDATE: 29/10/1995
+
+                                 Version:2.24
+
+
+COPYRIGHT © NOTES:
+-----------------
+
+This package/product is SHAREWARE.
+
+     For registration, send £5 (sterling) with a disk & S.A.E.
+     
+     A first class stamp will cover the return journey of 60g.
+     
+     The £5 fee can be paid in hard cash or a cheque in my name (PAUL J OVERY)
+
+     Anyone outside the UK will have to send cheques, for the sum of £7.50 
+     the extra 50% being the bank conversion fee. 
+   
+
+     (Future updates are free, but required a S.A.E + disk)
+
+My Name & address,
+
+        PAUL OVERY
+        27 Barton Road
+        Maidstone
+        Kent
+        ME15 7BU
+        ENGLAND.
+
+
+Please clearly state you wish to register for the GAME MAP EDITOR.
+
+
+               *** All thoughts & ideas are welcome ***
+               
+               
+               
+Other FryUp Products:
+---------------------
+
+   SpaceTrax.        (Hmmm, long time ago)
+   All Guns Blazing.       (Sold as Licenceware)
+   High Octane.      (PD game, better than AGB)
+   AMON extension for Amos.   (new)               
+        - Fast Angle routine, finds a direction between two points.
+        - Fast all in one Joystick commands 
+        - 4 player joystick commands.
+        - Mouse & keyboard commands under no multitasking (forbid)
+        - Fast Graphics commands.
+        - Fast Sin/Cos.
+        - Fast Array drawing commands.
+        - Fast Array checking commands.
+
+     This is still growing, once registed updates are free. 
+     (costs £5 + disk S.A.E)
+
+
+Future stuff: Bolt Thrower.    (space shoot E'm up game)
+         Ultimate Octane. (High Octane II the sequel) 
+
+
+
+DISCLAIMER
+----------
+
+I cannot be held responsible for any damage to you, your computing equipment, your
+programs, or any data as result of use the Amon extension, either directly or
+consequentially as a result of its use.
+By using the Amon extension you agree to these terms and agree not to hold me
+liable for any damages arising from use of this package.  Use the Amos extension
+package at your own risk.
+
+
+HARD DRIVE INSTALLATION
+-----------------------
+
+Simply drag the Game_Map_Editor disk icon to where you wish to install it.
+
+The Game Map Editor requires the Workbench "Libs:Diskfont.library".
+
+
+INTRODUCTION:
+-------------
+
+This is the full product with all the features in place.
+
+Map Editor Supports:-
+
+   * Map Overlays
+     - Hit Maps.
+     - Direction Maps.
+
+   * Effects
+     - Stencil.
+     - Random.
+     - Cycle.
+     
+   * Multiple Save Formats
+     - Amos Turbo+
+     - Raw data including Width & height header.
+     - Raw data, no header.
+     
+     ///Further save formats supported on request.///
+     
+   * Main icon/block drawing features
+     - Large cut & paste title brushes.
+     - Line drawing.
+     - Fill.
+     - Cut tile brushes from working screen.
+     - Filled rectangle.
+     - Fast and easy tile pick up system.
+       (large tile brushes are supported)
+     - Zoom out.
+     - Undo buffer.
+          - Left/Right mouse paste buffers.
+          
+
+What's a Map.
+-------------
+
+Have you ever wondered how games support so many levels of graphics, it's not
+unusual for games to have well over 200 screens.
+If you were to save 60 screens with Dpaint, you would soon use a whole disk with
+just those graphics alone.  This would Leave one big problem of fitting all that
+graphics into memory.
+
+To solve this problem we just hold a few key graphics in memory, this takes much
+less space and the key graphics can be used again and again.
+To keep things simple the key graphics are placed in a tile pattern, each
+individual *tile can be given a index number using this method.
+
+*tile = 16x16pixles
+
+How do we Generate a scene from a map and key graphics?
+
+Maps hold a sequence of tile patterns as values, when this is indexed with the
+key graphics it produces a scene.  So each value held in the map represents
+a separate key graphic.  Although for this to work each tile needs to be
+carefully drawn, so it can be repeated with itself or another tile.
+
+i.e.   A small 3x8 map.
+
+   +-+-+-+     8=Sky. (repeated tiles used)
+   |8|8|8|  7=Horizon. (repeated tiles used)
+   +-+-+-+        6=House block, base part1.
+   |8|8|8|  5=House block, base part2.
+   +-+-+-+     4=House block, base part3.
+   |7|7|7|     3=House block, roof part1.
+   +-+-+-+     2=House block, roof part2.
+   |1|2|3|     1=House block, roof part3.
+   +-+-+-+
+   |4|5|6|
+   +-+-+-+
+   
+This map uses 8 graphic tiles to complete a whole screen of 24 tiles.   
+      
+      
+Currently the map editor only handles a tile of 16 by 16 pixels in size.
+You can still design a map for 32x32 tiles.  Just shrink your graphics for map 
+designing, and use the default size in the game.
+In fact it works better this way, giving a much larger map view.
+ 
+
+
+INSTRUCTIONS:
+=============
+
+
+Command Line rules
+------------------
+
+When the Game Map Editor is first loaded, a "default.iff" is searched for.
+If found the graphic tiles are automaticlly loaded from this file.
+
+Or
+
+   you can use a command line, such as:-
+
+   CLI>Game_Map_Editor pic1.iff
+
+
+Multitasking
+------------
+
+Left Amiga & M swaps between the map editor and the WB screen.
+
+
+Moving around the Scene view:
+------------------------------
+
+Method¹ - Use the arrow keys to scroll.
+Method² - By touching the border with the mouse pointer.
+
+
+Title Bar:
+----------
+
+Title bar displays,
+
+    Current drawing mode selected.
+    Effects, Stencil on/off
+        Random  on/off
+        Cycle   on/off
+    Current map location x,y.
+
+
+The tool box has the following functions,
+
+   1. Draw Freehand
+   2. Line
+   3. Fill
+   4. Brush From Working Screen
+   5. Filled Rectangle
+   6. Pick New Tiles
+   7. Zoom Out
+   8. Options
+   9. Undo
+       10. Clr
+      
+
+The tool box has two states, giving the user a choice of layout.
+
+   Mode¹: Rectangle Tool Box
+      
+      [==][o]   <--- Drag + close gadget
+      +--+--+
+      |1 |2 |   \
+      +--+--+    \
+      |3 |4 |     \
+      +--+--+      \  Tools 
+      |5 |6 |      /
+      +--+--+     /
+      |7 |8 |    /
+      +--+--+   /
+      |9 |10|  
+      +--+--+
+   
+       Mode²: Line Tool Box
+             
+   +--+--+--+--+--+--+--+--+--+--+
+   |1 |2 |3 |4 |5 |6 |7 |8 |9 |10|     [==][o]
+   +--+--+--+--+--+--+--+--+--+--+
+
+The shape of the tool box can be toggled by clicking on the close gadget located
+at the top of the box¹ far right.
+
+On startup Mode¹ is made default unless a 32 colour screen is found, in which
+case mode² is made default.
+Mode² is handy for a 32 colour or Ham screens, as it's not displayed as a sprite.
+It has its own palette which is not effected by the main screen.
+
+Dragging The Tool Box.
+The tool box can also be moved buy holding the left mouse button down, then
+dragging it to its new location.
+
+
+ 1. Draw Freehand
+
+Lets you draw tiles with the current brush.
+Hold the left mouse button to draw with brush¹, or the right mouse to
+draw with brush².
+
+
+ 2. Line
+
+Draws a straight line in any direction.
+Hold the left mouse button to draw a line with brush¹, or the right mouse to
+draw a line with brush².
+
+
+ 3. Fill
+ 
+Use the fill tool to cover an enclosed area with a single tile type.
+The type of tile will be taken from the top left of the brush.
+Hold the left mouse button to fill with brush¹, or the right mouse to
+fill with brush².
+
+
+ 4. Brush From Working Screen
+ 
+Use the brush selector to quickly pick a block of tiles from the current working
+screen. This allows the re-use of already laid down tiles, saving a vast amount
+of time.
+
+Its use is as follows:
+
+   - Select pick brush, and move the cursor to the screen where it
+     becomes a large cross-hair.
+     
+   - Drag diagonally to enclose the area you want to use as a brush.
+   
+Using the left mouse button to pick up a brush copies the selected area into 
+buffer¹, the right mouse copies it into buffer².
+
+
+ 5. Rectangle Tool
+
+Use the rectangle tool to draw a filled rectangle using any brush.
+
+Its use is as follows:
+
+   - Select rectangle tool, move the cursor to the screen where it
+     becomes a large cross-hair.
+     
+   - Drag the cursor diagonally to form a rectangle.  When the rectangle
+          is the size you want, release the mouse button.
+          
+Using the left mouse button draws a filled rectangle with buffer¹, and using
+the right mouse button to draw a filled rectangle with buffer².
+
+
+ 6. Pick New Tiles.
+ 
+Use the tool to pick a new brush with the right or left mouse button.
+
+   - Select pick new tiles, and move the cursor to the screen where it
+     becomes a large cross-hair.
+     
+   - Drag diagonally to enclose the area you want to use as a brush.
+   
+Using the left mouse button to pick up a brush, copies the selected area into 
+buffer¹, the right mouse copies it into buffer².
+
+  
+ 7. Zoom Out (scale 16:1)
+ 
+Use the Zoom out tool to view the whole map area, the right-hand side of the
+screen is used to display the scaled map.
+The current x,y location can be changed by moving the cursor onto the scaled
+map, and clicking with left mouse button.
+
+
+ 8. Options
+ 
+Use the options tool to enter the options screen.
+To be explained in detail later.
+
+
+ 9. Undo
+ 
+Use the undo tool to revert the latest tiles drawn as long as there has been
+no intervening mouse clicks.
+The undo buffer only taking into account the current view, not the whole map area.
+Holding any mouse button down while scrolling will only buffer the area you
+started the scroll from.
+
+
+10. Clr
+       
+Use the clr tool to clear the whole map area in one go using any brush.
+
+A special case is made for this tool, undo will replace the complete map.
+
+The type of tile will be taken from the top left of the brush.
+Hold the left mouse button to fill with brush¹, or the right mouse to
+fill with brush².
+
+
+Options:
+--------
+
+Load
+
+Loads a previously saved map from disk using the Turbo+ map format.
+If any overlay maps (Hit/Arw) were saved at the same time, these will also
+be loaded in for you.
+
+Save
+
+Saves the current map to disk, multiple formats are supported.
+
+     - Amos Turbo+
+     - Raw data with Width & height header.
+     - Raw data, no header.
+
+If the Hit Map/Arrow map option is ticked, these maps will also be saved with
+".hit" & ".arw" added at the end of the name.
+
+
+Overlay Maps:
+-------------
+
+Hit
+
+The hit map simply allows you to mark tiles, selecting it as a hit tile.
+For example, marking a piece of scenery your character can't pass through.
+
+The save format is,
+   File Size = Total number of Tiles.
+   Data is saved as bytes, with no header.
+
+The map file stores values as bytes, i.e. 0 to 255.
+When saved, the size will be a 1/4 that of the main scene map.
+
+The hit map is indexed alongside the scene graphics, that's why its called
+a overlay map. 
+
+To find which tile is marked,
+   Read the tiles key graphic value.
+   This value is then used to index the hit map.
+   Resulting in a 1 for a hit, 0 for not marked.
+   (not forgetting you can use up to 255 different values in the hit map)
+
+But ahhh, I here you cry... Why not just use the map scene itself!
+Well this method is much more flexible, also its very fast because only boolean
+logic is used, ie. True 1/False 0, not a range of numbers.
+
+
+Arrow Maps:
+-----------
+
+Anyone who has played my game High Octane may have wondered how I got the CPU cars
+to drive around the track on their own.  You could even push them off the road and
+they would find their way back on.  Nearly all the car games I've seen have fixed
+CPU cars that don't budge a inch, leaving no way to knock them off the road.
+
+To give directions on the main scene map, all that has to be done is simply lay
+down arrow paths following the road.  Unlike the hit map you have to index the
+directions by the main scene maps x,y locations.
+
+
+The save format is,
+   Size = Scene X map * Scene Y map.
+   Data is saved as bytes, with no header.
+
+Data storage info,
+   Each byte holds, 1..72
+   i.e.  360°/5°=72 turns.       1
+                  |
+   so      1° =  1 face up    |
+      180° = 36 face down     55---+---19
+       90° = 19 face Right    |
+      270° = 55 face Left     |
+                  36
+                  
+                     64  10
+       45° = 10 face up right        \  /
+      135° = 28 face down right       \/
+      225° = 46 face down left        /\
+      315° = 64 face up left         /  \
+                     46  28
+                     
+Mid-angles are there if you ever need them.
+
+To find a direction,
+   Index the arrow map by x & y.
+   The value read is the direction to travel in.
+   Result is from 1 to 72.
+   
+i.e. You have two maps, the main scene map and the arrow map.  Both maps have the
+same dimensions, so the arrow map can be indexed just like the main scene map.
+Although the maps may be in different parts of the memory, they must be indexed 
+the same way.  So they can be considered overlaid on top of each other for 
+simplicity.
+     
+
+Note: The Amon extension for Amos supports fast angles between two points.
+So in just one command you can make you CPU vehicle face the opposition.
+
+
+Blocks
+------
+
+Blocks yet another name for Tiles!
+
+Iff Load.
+
+This option works in conjunction with the wipe/add toggle just below the load 
+button.  It loads in a iff picture processing it into rows of 20 blocks.
+
+Wipe.
+When wipe is chosen the old graphics are wiped just before the new set is loaded 
+and put in its place. This will not effect the map data, only the graphics.
+
+Add.
+When add is chosen, any new graphics are appended to the current tile graphic set.
+To do this the iff image to be merged must have the same amount of colours as the 
+current tile graphics.
+
+
+Delete Range.
+
+The delete range option allows you to remove any tiles that you don't need.
+
+To delete a tile or range of tiles, place the cursor over a tile and click the left
+mouse button.  This will mark the tile ready for deletion, once you exit the screen
+all the marked tiles will be deleted.
+Titles can be un-marked by using the right mouse button.
+
+Once a tile is deleted, it's gone.  To bring it back re-load the tile set with load
+iff.
+
+
+Define Map:
+-----------
+
+To re-size the scene map, click on either X: or Y: text boxes.  Once a box has been
+selected its contents are highlighted white, ready for a numerical keyboard input.
+
+   X: Width of scene map
+   Y: Height of scene map
+
+Once the width has been entered presseing return will automatically highlight the 
+height box ready for input.
+
+Map Memory
+
+The total amount of memory taken up by the map is displayed alongside the input
+boxes as bytes.
+
+Create map
+
+Once you are happy with your new map size, click on the Create option with the
+left mouse button.  
+
+
+Draw Modes:
+-----------
+
+Stencil.
+
+Creating a stencil allows you to lay tiles around a tile image without going on
+it, as though it were protected.
+
+The stencil effect will only operate with the freehand option, under single or
+brush tiles.  Stencil has no effect on the other drawing modes, please take
+this into account when using stencil.  It's also best to have stencil off when
+not in use, as the stencil mode is slower.
+
+When you have stencil active, an "S" appears in the title bar.
+ 
+
+Random.
+
+Uses the current brush size, and generates random tiles though all the selected
+random range as you draw.  Re-sizing the brush will create a new random brush,
+all selected tiles are ignored while random is on.  Only the brush size itself
+is used.
+
+The random effect will only operate with the freehand option, under single or
+brush tiles.  Random has no effect on the other drawing modes, please take
+this into account when using the random mode.  Also two or more random tiles
+must be selected before this option can be active.
+
+When you have random active, an "R" appears in the title bar.
+ 
+  
+Cycle.
+
+Uses the current brush size, and cycles through all the tiles in the marked
+cycle range as you draw.
+
+The cycle effect will only operate with the freehand option, under single or
+brush tiles.  Cycle has no effect on the other drawing modes, please take
+this into account when using the cycle mode.  Also two or more random tiles
+must be selected before this option can be active.
+
+When you have cycle active, an "C" appears in the title bar.
+ 
+
+Memory:
+-------
+
+Chip = Graphics memory.
+Fast = Extra memory.     
+
+Free Memory - The total available memory not used.
+
+Max Block - The maximum amount of useful none fragmented memory.
+
+Either chip or fast memory can be used for maps, the type is decided
+automatically depending on the largest free block.
+
+
+Grid:
+-----
+
+This will created a grid pattern over all the tiles, at gaps of 16 pixels.
+In my view this option is not very useful, being that the pick up brush
+system is very easy to use.  But some people may disagree, so its here.
+
+
+Scroll Border:
+--------------
+
+Allows automatic scrolling to be turned off, or made more sensitive. 
+Turning this option off leaves you with only the keyboard.  To scroll use
+the arrow keys.
+
+
+Quit:
+-----
+
+This option makes a cup of tea and cuts you a slice of cake.  
+
+
+About:
+------
+
+Show registered users name and design information.
+
+
+Save Config:
+------------
+
+This option will save your current map editor configuration inside draw "S:".
+If no "S:" draw is found one will be created for you. This option will save 
+from where you booted from i.e. if you boot from HD and then load the program 
+from floppy it will save the configuration to HD. 
+
+Configuration includes,
+
+   - Grid status
+   - Scroll border setting
+   - Map X,Y Dimensions
+
+On loading if no configuration is found, a default one will be used.

@@ -1,0 +1,22 @@
+
+
+Before you can use my code you must install the
+Turbo1_9.lib (AMOSPro_Turbo1_9.Lib for Pro).
+
+First unpack the turbo19.lha to disk or H/disk.
+
+For example, under CLI type:-
+
+   Lha x TURBO19.LHA DISK:
+
+NOTE: There is a copy of LHA in the "c" draw.
+
+Once you have done this, there will be new files
+in the now uncrunched DISK:Amos_Turbo draw.
+
+The disclaimer_doc.asc in the Docs_Anglaises draw will
+explain how to fully install Amos Turbo extension (PD ver).
+
+*** To use the map editor ***
+Type MAPEDITOR now.
+     ---------
