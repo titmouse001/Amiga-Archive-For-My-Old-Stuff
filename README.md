@@ -7,10 +7,10 @@ I was a teenager at the time; this is some really old stuff.
 
 ## Here's some stuff from back in 1994 about High Octane!
 <div style="float:left;margin:0 10px 10px 0" markdown="1">
-  <img src="/The_year_is_1994/AmigaUserFront.png" width="40%" alt="Amiga User magazine front cover from 1994">
-  <img src="/The_year_is_1994/AmigaUserPage.jpg" width="39%" alt="Amiga User magazine - review">
+  <img src="/The_year_is_1994/AmigaUserFront.png" width="33%" alt="Amiga User magazine front cover from 1994">
+  <img src="/The_year_is_1994/AmigaUserPage.jpg" width="32%" alt="Amiga User magazine - review">
+  <img src="/The_year_is_1994/PDZone.jpg" width="32%" alt="PD Zone magazine cover">
 <div>
-<img src="/The_year_is_1994/PDZone mag.jpg" width="50%" alt="PD Zone magazine cover">
 <div style="float:left;margin:0 10px 10px 0" markdown="1">
   <img src="/The_year_is_1994/InGameScreen.png" width="40%" alt="In-game screenshot">
   <img src="/The_year_is_1994/LoadingScreen.png" width="40%" alt="Game loading screen">
